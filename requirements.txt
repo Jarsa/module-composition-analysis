@@ -2,4 +2,5 @@
 gitpython
 oca_port
 odoo-addons-parser
+plotly
 pyyaml
