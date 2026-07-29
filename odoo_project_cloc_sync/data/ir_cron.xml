@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Jarsa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record model="ir.cron" id="cron_sync_cloc_modules">
+        <field name="name">Odoo Projects - Sync modules from Odoo Cloc</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field
+            name="nextcall"
+            eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 05:00:00')"
+        />
+        <field name="model_id" ref="odoo_project.model_odoo_project" />
+        <field name="state">code</field>
+        <field name="code">model._cron_sync_cloc_modules()</field>
+    </record>
+</odoo>

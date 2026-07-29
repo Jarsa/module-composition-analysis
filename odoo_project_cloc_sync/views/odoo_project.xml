@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Jarsa
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="odoo_project_view_form" model="ir.ui.view">
+        <field name="name">odoo.project.form.inherit.cloc.sync</field>
+        <field name="model">odoo.project</field>
+        <field name="inherit_id" ref="odoo_project.odoo_project_view_form" />
+        <field name="arch" type="xml">
+            <button name="action_scan" position="after">
+                <button
+                    name="action_sync_cloc_modules"
+                    type="object"
+                    string="Sync from Cloc"
+                    help="Fetch the installed modules and their versions from the customer instance."
+                    invisible="not cloc_url"
+                    groups="odoo_repository.group_odoo_repository_user"
+                />
+            </button>
+            <group position="after">
+                <group name="cloc_sync" string="Odoo Cloc">
+                    <field name="cloc_sync" />
+                    <field name="cloc_url" placeholder="https://customer.odoo.com" />
+                    <field name="cloc_token" password="True" />
+                    <field name="cloc_last_sync" />
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
