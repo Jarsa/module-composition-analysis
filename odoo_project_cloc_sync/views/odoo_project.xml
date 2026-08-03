@@ -23,8 +23,20 @@
                     <field name="cloc_url" placeholder="https://customer.odoo.com" />
                     <field name="cloc_token" password="True" />
                     <field name="cloc_last_sync" />
+                    <field name="sloc_total" />
                 </group>
             </group>
+        </field>
+    </record>
+
+    <record id="odoo_project_module_view_tree" model="ir.ui.view">
+        <field name="name">odoo.project.module.list.inherit.cloc.sync</field>
+        <field name="model">odoo.project.module</field>
+        <field name="inherit_id" ref="odoo_project.odoo_project_module_view_tree" />
+        <field name="arch" type="xml">
+            <field name="installed_version" position="after">
+                <field name="sloc" optional="show" sum="Total" />
+            </field>
         </field>
     </record>
 </odoo>
