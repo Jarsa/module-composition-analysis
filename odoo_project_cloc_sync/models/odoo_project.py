@@ -26,8 +26,8 @@ class OdooProject(models.Model):
         "e.g. https://customer.odoo.com",
     )
     cloc_token = fields.Char(
-        help="Optional token, must match the 'odoo_cloc.webhook_token' system "
-        "parameter of the customer instance.",
+        help="Mandatory token, must match the 'odoo_cloc.webhook_token' "
+        "system parameter of the customer instance.",
     )
     cloc_last_sync = fields.Datetime(readonly=True)
     sloc_total = fields.Integer(

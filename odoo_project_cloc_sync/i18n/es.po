@@ -4,35 +4,23 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-06 21:15+0000\n"
+"PO-Revision-Date: 2026-08-06 21:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: odoo_project_cloc_sync
-#: model:ir.model,name:odoo_project_cloc_sync.model_odoo_project
-msgid "Odoo Project"
-msgstr "Proyecto Odoo"
-
-#. module: odoo_project_cloc_sync
-#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_sync
-msgid "Sync Modules from Odoo Cloc"
-msgstr "Sincronizar módulos desde Odoo Cloc"
-
-#. module: odoo_project_cloc_sync
-#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_url
-msgid "Odoo Cloc URL"
-msgstr "URL de Odoo Cloc"
-
-#. module: odoo_project_cloc_sync
-#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_token
-msgid "Cloc Token"
-msgstr "Token de Cloc"
+#: model:ir.model.fields,help:odoo_project_cloc_sync.field_odoo_project__cloc_url
+msgid ""
+"Base URL of the customer instance exposing the odoo_cloc webhook, e.g. "
+"https://customer.odoo.com"
+msgstr "URL base de la instancia del cliente que expone el webhook de odoo_cloc, p. ej. https://cliente.odoo.com"
 
 #. module: odoo_project_cloc_sync
 #: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_last_sync
@@ -40,9 +28,90 @@ msgid "Cloc Last Sync"
 msgstr "Última sincronización de Cloc"
 
 #. module: odoo_project_cloc_sync
-#: model:ir.cron,name:odoo_project_cloc_sync.cron_sync_cloc_modules
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_token
+msgid "Cloc Token"
+msgstr "Token de Cloc"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__display_name
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project_module__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: odoo_project_cloc_sync
+#: model_terms:ir.ui.view,arch_db:odoo_project_cloc_sync.odoo_project_view_form
+msgid ""
+"Fetch the installed modules and their versions from the customer instance."
+msgstr "Obtener los módulos instalados y sus versiones desde la instancia del cliente."
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__id
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project_module__id
+msgid "ID"
+msgstr "ID"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,help:odoo_project_cloc_sync.field_odoo_project_module__sloc
+msgid ""
+"Lines of code reported by the odoo_cloc webhook of the customer instance "
+"(only custom modules are counted)."
+msgstr "Líneas de código reportadas por el webhook de odoo_cloc de la instancia del cliente (solo se cuentan los módulos personalizados)."
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,help:odoo_project_cloc_sync.field_odoo_project__cloc_token
+msgid ""
+"Mandatory token, must match the 'odoo_cloc.webhook_token' system parameter "
+"of the customer instance."
+msgstr "Token obligatorio, debe coincidir con el parámetro del sistema 'odoo_cloc.webhook_token' de la instancia del cliente."
+
+#. module: odoo_project_cloc_sync
+#: model_terms:ir.ui.view,arch_db:odoo_project_cloc_sync.odoo_project_view_form
+msgid "Odoo Cloc"
+msgstr "Odoo Cloc"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_url
+msgid "Odoo Cloc URL"
+msgstr "URL de Odoo Cloc"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model,name:odoo_project_cloc_sync.model_odoo_project
+msgid "Odoo Project"
+msgstr "Proyecto Odoo"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model,name:odoo_project_cloc_sync.model_odoo_project_module
+msgid "Odoo Project Module"
+msgstr "Módulo del proyecto Odoo"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.actions.server,name:odoo_project_cloc_sync.cron_sync_cloc_modules_ir_actions_server
 msgid "Odoo Projects - Sync modules from Odoo Cloc"
 msgstr "Proyectos Odoo - Sincronizar módulos desde Odoo Cloc"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project_module__sloc
+msgid "SLOC"
+msgstr "SLOC"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,help:odoo_project_cloc_sync.field_odoo_project__sloc_total
+msgid ""
+"Sum of the lines of code of the custom modules reported by the odoo_cloc "
+"webhook."
+msgstr "Suma de las líneas de código de los módulos personalizados reportadas por el webhook de odoo_cloc."
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__cloc_sync
+msgid "Sync Modules from Odoo Cloc"
+msgstr "Sincronizar módulos desde Odoo Cloc"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,help:odoo_project_cloc_sync.field_odoo_project__cloc_sync
+msgid ""
+"Sync daily the installed modules and their versions from the odoo_cloc "
+"webhook of the customer instance."
+msgstr "Sincronizar diariamente los módulos instalados y sus versiones desde el webhook de odoo_cloc de la instancia del cliente."
 
 #. module: odoo_project_cloc_sync
 #: model_terms:ir.ui.view,arch_db:odoo_project_cloc_sync.odoo_project_view_form
@@ -50,6 +119,16 @@ msgid "Sync from Cloc"
 msgstr "Sincronizar desde Cloc"
 
 #. module: odoo_project_cloc_sync
+#: model_terms:ir.ui.view,arch_db:odoo_project_cloc_sync.odoo_project_module_view_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: odoo_project_cloc_sync
+#: model:ir.model.fields,field_description:odoo_project_cloc_sync.field_odoo_project__sloc_total
+msgid "Total SLOC"
+msgstr "SLOC total"
+
+#. module: odoo_project_cloc_sync
 #: model_terms:ir.ui.view,arch_db:odoo_project_cloc_sync.odoo_project_view_form
-msgid "Odoo Cloc"
-msgstr "Odoo Cloc"
+msgid "https://customer.odoo.com"
+msgstr "https://cliente.odoo.com"
