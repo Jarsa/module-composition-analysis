@@ -59,6 +59,25 @@ class TestClocSync(TransactionCase):
         )
         self.assertEqual(custom.installed_version, "19.0.1.0.0")
         self.assertTrue(self.project.cloc_last_sync)
+        self.assertEqual(custom.sloc, 100)
+        standard = modules - custom
+        self.assertEqual(standard.sloc, 0)
+        self.assertEqual(self.project.sloc_total, 100)
+
+    def test_sync_updates_sloc(self):
+        self._sync(
+            {
+                "modules": {"custom_module": 100},
+                "versions": {"custom_module": "19.0.1.0.0"},
+            }
+        )
+        self._sync(
+            {
+                "modules": {"custom_module": 250},
+                "versions": {"custom_module": "19.0.1.1.0"},
+            }
+        )
+        self.assertEqual(self.project.sloc_total, 250)
 
     def test_sync_legacy_response(self):
         # Webhook viejo: solo {module: sloc}, sin versiones

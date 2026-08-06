@@ -5,7 +5,7 @@ import logging
 
 import requests
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -30,6 +30,17 @@ class OdooProject(models.Model):
         "parameter of the customer instance.",
     )
     cloc_last_sync = fields.Datetime(readonly=True)
+    sloc_total = fields.Integer(
+        string="Total SLOC",
+        compute="_compute_sloc_total",
+        help="Sum of the lines of code of the custom modules reported by the "
+        "odoo_cloc webhook.",
+    )
+
+    @api.depends("project_module_ids.sloc")
+    def _compute_sloc_total(self):
+        for rec in self:
+            rec.sloc_total = sum(rec.project_module_ids.mapped("sloc"))
 
     def action_sync_cloc_modules(self):
         for rec in self:
@@ -38,7 +49,7 @@ class OdooProject(models.Model):
             if not versions:
                 continue
             lines = [
-                ("%s %s" % (name, version or "")).strip()
+                f"{name} {version or ''}".strip()
                 for name, version in sorted(versions.items())
             ]
             wizard = self.env["odoo.project.import.modules"].create(
@@ -48,6 +59,9 @@ class OdooProject(models.Model):
                 }
             )
             wizard.action_import()
+            modules_sloc = data.get("modules") or {}
+            for module in rec.project_module_ids:
+                module.sloc = modules_sloc.get(module.module_id.name, 0)
             rec.cloc_last_sync = fields.Datetime.now()
         return True
 
